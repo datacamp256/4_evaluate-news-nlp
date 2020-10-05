@@ -19,10 +19,6 @@ module.exports = merge(common, {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({ filename: "[name].css" })
     ],
-    output: {
-        libraryTarget: 'var',
-        library: 'Client'
-    },
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
     },

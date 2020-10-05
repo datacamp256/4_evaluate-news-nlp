@@ -1,15 +1,14 @@
-var path = require('path')
+let path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
+const apiKeyLoader = require('./apiKeyLoader')
+const meaningCloudClient = require('./meaningCloudClient')
 
-const dotenv = require('dotenv');
-dotenv.config();
-var textapi = new meaningCloud({
-    application_key: process.env.MEANINGCLOUD_API_KEY
-});
 const app = express()
 
+const bodyParser = require('body-parser')
 app.use(express.static('dist'))
+app.use(bodyParser.text());
 
 console.log(__dirname)
 
@@ -26,3 +25,11 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
+app.get('/meaningcloud/url/', async function (req, res) {
+    let apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site==='MeaningCloud').application_key;
+    let result = meaningCloudClient.sentimentAnalysisFromUrl(apiKey, req.body);
+    await console.log(result);
+    res.send(result);
+})
+

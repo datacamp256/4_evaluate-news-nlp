@@ -13,8 +13,8 @@ app.use(bodyParser.text());
 console.log(__dirname)
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
-    res.sendFile(path.resolve('src/client/views/index.html'))
+    res.sendFile('dist/index.html')
+    // res.sendFile(path.resolve('dist/index.html'))
 })
 
 // designates what port the app will listen to for incoming requests
@@ -26,9 +26,9 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/meaningcloud/url/', async function (req, res) {
+app.get('/meaningcloud/text/', async function (req, res) {
     let apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site === 'MeaningCloud').application_key;
-    meaningCloudClient.sentimentAnalysis(apiKey,
+  await  meaningCloudClient.sentimentAnalysis(apiKey,
         req.body,
         (result) => {
             res.send(result);

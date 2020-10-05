@@ -27,9 +27,11 @@ app.get('/test', function (req, res) {
 })
 
 app.get('/meaningcloud/url/', async function (req, res) {
-    let apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site==='MeaningCloud').application_key;
-    let result = meaningCloudClient.sentimentAnalysisFromUrl(apiKey, req.body);
-    await console.log(result);
-    res.send(result);
+    let apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site === 'MeaningCloud').application_key;
+    meaningCloudClient.sentimentAnalysis(apiKey,
+        req.body,
+        (result) => {
+            res.send(result);
+        });
 })
 

@@ -1,3 +1,5 @@
+import {update} from "./resultUpdate";
+
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -7,8 +9,7 @@ function handleSubmit(event) {
     fetch('http://localhost:8081/meaningcloud?text='+encodeURI(formText))
     .then(res => res.json())
     .then(function(res) {
-        console.log(res);
-        document.getElementById('results').innerHTML = res.message//TODO change here
+        Client.update(res)
     });
 }
 

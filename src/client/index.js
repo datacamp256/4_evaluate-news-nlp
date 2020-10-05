@@ -1,5 +1,6 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
+import { update } from './js/resultUpdate'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
@@ -13,5 +14,6 @@ document.getElementById("submit").addEventListener("click", function(event) {
 });
 export {
     checkForName,
-    handleSubmit
+    handleSubmit,
+    update
 }

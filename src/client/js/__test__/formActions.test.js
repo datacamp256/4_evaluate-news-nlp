@@ -27,8 +27,6 @@ describe('In "formActions"', () => {
 
     })
     describe('the function "analyzeForm"', () => {
-        const analyzeForm = sut.__get__('analyzeForm');
-
         test('should toggle toggle button "active"', function () {
             let toggleWasExecuted = false;
             const submitButton = document.createElement('input');
@@ -69,9 +67,20 @@ describe('In "formActions"', () => {
             const textField = document.createElement('input');
             textField.value = '';
 
-            sut.__set__('toggleButton', function (submitButton, active) {
-                toggleWasExecuted = true;
-            });
+            sut.__set__('toggleButton', () => toggleWasExecuted = true);
+
+            sut.analyzeForm(textField, submitButton);
+
+            expect(toggleWasExecuted).toBeFalsy();
+        });
+        test('should NOT toggle toggle active button with text in field', function () {
+            let toggleWasExecuted = false;
+            const submitButton = document.createElement('input');
+            // submitButton.setAttribute('disabled', 'disabled');//active
+            const textField = document.createElement('input');
+            textField.value = '::content::';
+
+            sut.__set__('toggleButton', () => toggleWasExecuted = true);
 
             sut.analyzeForm(textField, submitButton);
 

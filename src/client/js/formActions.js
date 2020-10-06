@@ -6,7 +6,7 @@ let urlWarningIsActive = false;
 
 
 function analyzeForm(textField, submitButton) {
-    const textHasValue = textField.value || false;
+        const textHasValue = !!textField.value;
     let buttonIsActive = !submitButton.getAttribute(DISABLED);
 
     if (textHasValue !== buttonIsActive) {

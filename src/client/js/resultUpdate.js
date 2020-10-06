@@ -75,4 +75,5 @@ function toggleUrlWarning(makeVisible) {
     }
 }
 
-export {update, toggleUrlWarning}
+module.exports.update = update;
+module.exports.toggleUrlWarning = toggleUrlWarning;

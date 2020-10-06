@@ -1,10 +1,21 @@
-async function update(resultJson) {
-    console.log(resultJson);
+function updateResults(resultJson) {
     const resultDiv = document.getElementById('results');
     resultDiv.style.display = 'none';
-    resultDiv.innerText=null;
+    resultDiv.innerText = null;
     resultDiv.appendChild(createResultFragment(resultJson));
     resultDiv.style.display = 'block';
+}
+function updateFooter(remainingCredits) {
+    const footer = document.getElementsByTagName('footer')[0];
+    console.log(footer);
+    footer.style.display = 'none';
+    footer.innerText = 'Remaining Credits: ' + remainingCredits;
+    footer.style.display = 'block';
+}
+async function update(resultJson) {
+    console.log(resultJson);
+    updateResults(resultJson);
+    updateFooter(resultJson.status.remaining_credits)
 }
 
 function createSummary(fragment, resultJson) {
@@ -45,8 +56,6 @@ function createResultFragment(resultJson) {
     const fragment = document.createDocumentFragment();
     createSummary(fragment, resultJson);
     createSentenceTable(fragment, resultJson);
-
-
     return fragment;
 }
 

@@ -5,5 +5,42 @@ main {
   section {
     max-width: 800px;
     margin: 50px auto;
+
+    h1 {
+      font-size: 2rem;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1em;
+      margin-bottom: 0.5em;
+    }
+
+    div {
+      ul {
+        list-style-type: circle;
+        list-style-position: inside;
+      }
+
+      table {
+        border-collapse: collapse;
+        td, th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #838683;
+          color: white;
+        }
+        tr:hover{
+          background-color: #ddd;
+        }
+      }
+    }
   }
 }

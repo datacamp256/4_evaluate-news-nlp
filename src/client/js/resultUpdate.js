@@ -2,13 +2,13 @@ async function update(resultJson) {
     console.log(resultJson);
     const resultDiv = document.getElementById('results');
     resultDiv.style.display = 'none';
+    resultDiv.innerText=null;
     resultDiv.appendChild(createResultFragment(resultJson));
     resultDiv.style.display = 'block';
 }
 
-function createResultFragment(resultJson) {
-    const fragment = document.createDocumentFragment();
-    fragment.appendChild(createTag( 'h2', 'Text summary'));
+function createSummary(fragment, resultJson) {
+    fragment.appendChild(createTagWithText('h2', 'Text summary'));
     const textProperties = document.createElement('ul');
     [{key: 'agreement', value: resultJson.agreement},
         {key: 'confidence', value: resultJson.confidence},
@@ -20,16 +20,38 @@ function createResultFragment(resultJson) {
             listElement.innerText = `${element.key}: ${element.value}`;
             textProperties.appendChild(listElement);
         });
-
-    resultJson.sentenceList.forEach(element => {
-    });
-    //TODO continue here
     fragment.appendChild(textProperties);
+}
+
+function createSentenceTable(fragment, resultJson) {
+    fragment.appendChild(createTagWithText('h2', 'Sentences'));
+    const table = document.createElement('table');
+    const row = document.createElement('tr');
+    ['Sentence', 'Agreement', 'Confidence', 'Bop', 'Score Tag'].forEach(title => {
+        row.appendChild(createTagWithText('th', title));
+    });
+    table.appendChild(row);
+    resultJson.sentence_list.forEach(element => {
+        const row = document.createElement('tr');
+        [element.text, element.agreement, element.confidence, element.bop, element.score_tag].forEach(field =>{
+            row.appendChild(createTagWithText('td', field));
+        });
+        table.appendChild(row);
+    });
+    fragment.appendChild(table);
+}
+
+function createResultFragment(resultJson) {
+    const fragment = document.createDocumentFragment();
+    createSummary(fragment, resultJson);
+    createSentenceTable(fragment, resultJson);
+
+
     return fragment;
 }
 
-function createTag(elementType, elementContent) {
-    let item = document.createElement(elementType);
+function createTagWithText(elementType, elementContent) {
+    const item = document.createElement(elementType);
     item.innerText = elementContent;
     return item;
 }

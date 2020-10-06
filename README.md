@@ -48,3 +48,20 @@ As a shortcut you can have the application deployed right from the sources (more
 npm run run-dev
 ```
 
+## Some notes about testing
+I like implementing test-driven - especially in pair doing 'pairing-ping-pong' (Alice writes a minimal test. Bob implements the code as minimal as possible to make the test green. Bob writes a second test which needs a minimum extra behavior, Alice implements the code as minimal as possible to make the test green. Rinse and repeat.)
+Test driven development works at its best if you know the technology you use. If you explore new frameworks or languages it is quite harder to work test-driven. I implemented development-driven tests, I must confess.
+
+I tried to test each js file but there were some problems:
+
+### Functions which are not exported
+After an intensive Google-session I was able to get a hand on non-exported functions using the 'rewire' framework.
+
+### fetch calls
+In our team we already did work with fetch-mock in an React/AntDesign application, so I mocked fetch calls using it. But I don't know how to mock the backend-fetches (follow-redirects) in the meaningCloudClient.
+
+### Testing of index.js
+I only know how to test things triggered by function call or event. The index.js files in server and client are more like scripts. I don't know how to invoke.
+
+### Some weird behavior of document.body.innerHTML and innerText
+I am not able to test the text content of any DOM elements. They seem not to be changed at all.

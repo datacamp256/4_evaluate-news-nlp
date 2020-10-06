@@ -28,4 +28,4 @@ function toggleButton(submitButton, active) {
 
 
 
-export {analyzeForm}
+module.exports.analyzeForm = analyzeForm

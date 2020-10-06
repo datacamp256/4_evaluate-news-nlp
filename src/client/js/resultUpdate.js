@@ -63,4 +63,16 @@ function createTagWithText(elementType, elementContent) {
     item.innerText = elementContent;
     return item;
 }
-export {update}
+
+function toggleUrlWarning(makeVisible) {
+    const warning = document.getElementById('warning');
+    if (makeVisible) {
+        warning.style.display = 'block';
+        return true;
+    } else {
+        warning.style.display = 'none';
+        return false;
+    }
+}
+
+export {update, toggleUrlWarning}

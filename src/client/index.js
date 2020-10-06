@@ -1,6 +1,6 @@
-import { toggleForm } from './js/formActions'
+import { analyzeForm } from './js/formActions'
 import { handleSubmit } from './js/formHandler'
-import { update } from './js/resultUpdate'
+import { update, toggleUrlWarning } from './js/resultUpdate'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
@@ -12,9 +12,10 @@ import './styles/main.scss'
 const submitButton = document.getElementById("submit");
 submitButton.addEventListener("click", event => handleSubmit(event));
 const textField = document.getElementById("name");
-textField.addEventListener("input", event =>  toggleForm(textField, submitButton));
+textField.addEventListener("input", () =>  analyzeForm(textField, submitButton));
 export {
-    toggleForm,
+    analyzeForm,
     handleSubmit,
-    update
+    update,
+    toggleUrlWarning
 }

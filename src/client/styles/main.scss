@@ -18,6 +18,18 @@ main {
       margin-bottom: 0.5em;
     }
 
+    form {
+      display: flex;
+      flex-direction: column;
+
+      #warning {
+        display: none;
+        padding: 0.2em;
+        color: white;
+        background: red;
+      }
+    }
+
     div {
       ul {
         list-style-type: circle;
@@ -26,6 +38,7 @@ main {
 
       table {
         border-collapse: collapse;
+
         td, th {
           border: 1px solid #ddd;
           padding: 8px;

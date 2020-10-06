@@ -1,4 +1,4 @@
-import { checkForName } from './js/nameChecker'
+import { toggleForm } from './js/formActions'
 import { handleSubmit } from './js/formHandler'
 import { update } from './js/resultUpdate'
 import './styles/resets.scss'
@@ -9,11 +9,12 @@ import './styles/header.scss'
 import './styles/main.scss'
 
 // console.log(checkForName);
-document.getElementById("submit").addEventListener("click", function(event) {
-    handleSubmit(event);
-});
+const submitButton = document.getElementById("submit");
+submitButton.addEventListener("click", event => handleSubmit(event));
+const textField = document.getElementById("name");
+textField.addEventListener("input", event =>  toggleForm(textField, submitButton));
 export {
-    checkForName,
+    toggleForm,
     handleSubmit,
     update
 }

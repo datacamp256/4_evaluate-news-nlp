@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Bridge</title>
     </head>
 
     <body>
@@ -18,14 +18,13 @@
 
         <main>
             <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="Klingons are arriving the orbit. Shields 100%. Shields are getting low!" onblur="onBlur()" placeholder="Status message for the Captain!">
-                    <input id="submit" type="submit" name="" value="Report to Captain">
+                <form class="" >
+                    <input id="name" type="text" name="input" value="" placeholder="Give a status message for the Captain!">
+                    <input id="submit" type="submit" disabled="disabled" name="" value="Report to Captain">
                 </form>
             </section>
 
             <section>
-                <h1>Form Results</h1>
                 <div id="results"></div>
             </section>
         </main>

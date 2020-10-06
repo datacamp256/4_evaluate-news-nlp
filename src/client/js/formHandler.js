@@ -1,5 +1,3 @@
-import {update} from "./resultUpdate";
-
 function handleSubmit(event) {
     event.preventDefault()
 
@@ -13,5 +11,4 @@ function handleSubmit(event) {
     });
 }
 
-// module.exports.handleSubmit = handleSubmit;
 export { handleSubmit }

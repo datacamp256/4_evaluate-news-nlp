@@ -22,11 +22,18 @@ main {
       display: flex;
       flex-direction: column;
 
-      #warning {
-        display: none;
+      .error-label {
         padding: 0.2em;
         color: white;
         background: red;
+      }
+
+      #warning {
+        display: none;
+      }
+
+      #connection-error {
+        display: none;
       }
     }
 

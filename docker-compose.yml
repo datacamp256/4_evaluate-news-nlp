@@ -1,0 +1,15 @@
+version: "2"
+services:
+  udacity-4-evaluate-news-nlp:
+    image: "node:14"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "8081"
+    ports:
+    - "8081:8081"
+    command: "npm start"

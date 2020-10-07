@@ -65,3 +65,10 @@ I only know how to test things triggered by function call or event. The index.js
 
 ### Some weird behavior of document.body.innerHTML and innerText
 I am not able to test the text content of any DOM elements. They seem not to be changed at all.
+
+## Some notes about the 'Content' section from the Project specification
+The rubric says:
+> Only one html file is required, **_but it must be at src/views/ or src/html_**. 
+>Must contain valid semantic html
+
+The html is actually under src/_**client**_/views. I believe that's the semantically correct location as it is part of the client.

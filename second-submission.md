@@ -16,9 +16,6 @@ Well, I presume a 'works on my machine' will not help ;-) (though it really shou
 
 Actually, a some things have changed in that area - hopefully the tests are now green for you too!
 
-## Code Reviews
-Some small statemets 
-
-### node-fetch in src/server/meaningCloudClient.js 
+### Use node-fetch in src/server/meaningCloudClient.js 
 Thank you! That helped a lot!!
 

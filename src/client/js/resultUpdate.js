@@ -66,13 +66,9 @@ function createTagWithText(elementType, elementContent) {
 
 function toggleUrl(textIsUrl) {
     const button = document.getElementById('submit');
-    if (textIsUrl) {
-        button.value = 'Analyze Webpage';
-        return true;
-    } else {
-        button.value = 'Analyze Text';
-        return false;
-    }
+    //if it is not an URL the text will be analyzed as text. No error handling necessary
+    button.value = textIsUrl ? 'Analyze Webpage' : 'Analyze Text';
+    return textIsUrl;
 }
 
 module.exports.update = update;

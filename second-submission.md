@@ -12,5 +12,13 @@ Thank you for your detailed error description! Your remaining credits are 20000,
 I changed the dictionary to "general", which is available for every MeaningCloud account.
 
 ### Tests fail
-Well, I presume a 'works on my machine' will not help ;-) (though it really should work...)
+Well, I presume a 'works on my machine' will not help ;-) (though it really should have worked...)
+
+Actually, a some things have changed in that area - hopefully the tests are now green for you too!
+
+## Code Reviews
+Some small statemets 
+
+### node-fetch in src/server/meaningCloudClient.js 
+Thank you! That helped a lot!!
 

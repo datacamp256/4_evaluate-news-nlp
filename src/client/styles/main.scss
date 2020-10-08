@@ -28,6 +28,10 @@ main {
         background: red;
       }
 
+      #submit:hover{
+        cursor:pointer;
+      }
+
       #warning {
         display: none;
       }

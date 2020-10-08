@@ -1,10 +1,10 @@
-const express = require('express')
-const apiKeyLoader = require('./apiKeyLoader')
-const meaningCloudClient = require('./meaningCloudClient')
-
-const app = express()
-
-const bodyParser = require('body-parser')
+const express = require('express');
+const apiKeyLoader = require('./apiKeyLoader');
+const meaningCloudClient = require('./meaningCloudClient');
+const cors = require('cors');
+const app = express();
+const bodyParser = require('body-parser');
+app.use(cors());
 app.use(express.static('dist'))
 app.use(bodyParser.text());
 

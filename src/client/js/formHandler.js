@@ -1,13 +1,13 @@
 const VISIBLE_ERROR = 'display: block;';
 const INVISIBLE_ERROR = 'display: none;';
 
-function handleSubmit(event) {
+function handleSubmit(event, contentIsUrl) {
     event.preventDefault()
 
     // check what text was put into the form field
-    let formText = document.getElementById('name').value
+    let formValue = document.getElementById('name').value
     toggleErrorLabel(false);
-    fetch('http://localhost:8081/meaningcloud?text=' + encodeURI(formText))
+    fetch(`http://localhost:8081/meaningcloud?${contentIsUrl?'url':'text'}=${encodeURI(formValue)}`)
         .then(res => {
             if (res.ok) {
                 return res.json();

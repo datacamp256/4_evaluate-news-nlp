@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Bridge</title>
-    </head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <body>
+<head>
+    <meta charset="utf-8">
+    <title>Bridge</title>
+</head>
 
-        <header>
-            <div class="">
+<body>
+
+<header>
+    <div class="">
                 Evaluate News
             </div>
             <div class="">
@@ -19,9 +21,8 @@
         <main>
             <section>
                 <form class="" >
-                    <input id="name" type="text" name="input" value="" placeholder="Give a status message for the Captain!">
-                    <label id="warning" class="error-label">URLs are not supported at the moment</label>
-                    <input id="submit" type="submit" disabled="disabled" name="" value="Report to Captain">
+                    <label for="name">Text or URL</label><input id="name" type="text" name="input" value="" placeholder="Enter a text or an URL here">
+                    <input id="submit" type="submit" disabled="disabled" name="" value="Analyze Text">
                     <label id="connection-error" class="error-label">Could not connect to the backend</label>
                 </form>
             </section>

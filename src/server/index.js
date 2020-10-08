@@ -20,11 +20,13 @@ app.listen(8081, function () {
 })
 
 app.get('/meaningcloud', async function (req, res) {
-    let apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site === 'MeaningCloud').application_key;
-  await  meaningCloudClient.sentimentAnalysis(apiKey,
-      req.query.text,
-        (result) => {
-            res.send(result);
-        });
+    const apiKey = apiKeyLoader.getApiKeys().sites.find(site => site.site === 'MeaningCloud').application_key;
+    if (req.query.text) {
+        res.send(await meaningCloudClient.sentimentAnalysis(apiKey, req.query.text, false));
+    } else if (req.query.url) {
+        res.send(await meaningCloudClient.sentimentAnalysis(apiKey, req.query.url, true));
+    } else {
+        res.status(400).send('Unknown requet parameter. Only "text" and "url" are allowed.');
+    }
 })
 

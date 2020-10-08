@@ -40,27 +40,27 @@ describe('resultUpdate', () => {
         expect(document.body.innerHTML).toEqual('<div id="results" style="display: block;"><h1></h1><h2></h2><ul><li></li><li></li><li></li><li></li><li></li></ul><h2></h2><table><tr><th></th><th></th><th></th><th></th><th></th></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr></table></div><footer style="display: block;"></footer>');
     });
 
-    describe('toggle url warning', function () {
-        test('should inactivate warning', function () {
-            document.body.innerHTML = `<div id='warning' style="display: block;">::content::</div>`;
-            resultUpdate.toggleUrlWarning(false);
-            expect(document.body.innerHTML).toEqual(`<div id="warning" style="display: none;">::content::</div>`)
+    describe('toggle button text for url vs. text', function () {
+        test('should toggle to "Analyze Text"', function () {
+            document.body.innerHTML = '<input id="submit" type="submit" value="::wrong::">';
+            resultUpdate.toggleUrl(false);
+            expect(document.body.innerHTML).toEqual('<input id="submit" type="submit" value="Analyze Text">')
         });
 
-        test('should activate warning', function () {
-            document.body.innerHTML = `<div id='warning' style="display: none;">::content::</div>`;
-            resultUpdate.toggleUrlWarning(true);
-            expect(document.body.innerHTML).toEqual(`<div id="warning" style="display: block;">::content::</div>`)
+        test('should toggle to "Analyze Webpage"', function () {
+            document.body.innerHTML = '<input id="submit" type="submit" value="::wrong::">';
+            resultUpdate.toggleUrl(true);
+            expect(document.body.innerHTML).toEqual('<input id="submit" type="submit" value="Analyze Webpage">')
         });
-        test('should keep active warning', function () {
-            document.body.innerHTML = `<div id='warning' style="display: block;">::content::</div>`;
-            resultUpdate.toggleUrlWarning(true);
-            expect(document.body.innerHTML).toEqual(`<div id="warning" style="display: block;">::content::</div>`)
+        test('should keep "Analyze Webpage"', function () {
+            document.body.innerHTML = '<input id="submit" type="submit" value="::wrong::">';
+            resultUpdate.toggleUrl(true);
+            expect(document.body.innerHTML).toEqual('<input id="submit" type="submit" value="Analyze Webpage">')
         });
-        test('should keep inactive warning', function () {
-            document.body.innerHTML = `<div id='warning' style="display: none;">::content::</div>`;
-            resultUpdate.toggleUrlWarning(false);
-            expect(document.body.innerHTML).toEqual(`<div id="warning" style="display: none;">::content::</div>`)
+        test('should keep "Analyze Text"', function () {
+            document.body.innerHTML = '<input id="submit" type="submit" value="::wrong::">';
+            resultUpdate.toggleUrl(false);
+            expect(document.body.innerHTML).toEqual('<input id="submit" type="submit" value="Analyze Text">')
         });
     });
 })

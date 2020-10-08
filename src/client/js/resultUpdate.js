@@ -64,16 +64,16 @@ function createTagWithText(elementType, elementContent) {
     return item;
 }
 
-function toggleUrlWarning(makeVisible) {
-    const warning = document.getElementById('warning');
-    if (makeVisible) {
-        warning.style.display = 'block';
+function toggleUrl(textIsUrl) {
+    const button = document.getElementById('submit');
+    if (textIsUrl) {
+        button.value = 'Analyze Webpage';
         return true;
     } else {
-        warning.style.display = 'none';
+        button.value = 'Analyze Text';
         return false;
     }
 }
 
 module.exports.update = update;
-module.exports.toggleUrlWarning = toggleUrlWarning;
+module.exports.toggleUrl = toggleUrl;

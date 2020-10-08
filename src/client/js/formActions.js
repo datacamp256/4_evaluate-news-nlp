@@ -4,6 +4,10 @@ const regexMatcher = new RegExp(urlRegEx);
 let urlModeIsActive = false;
 
 
+function textFieldContainsUrl(textField) {
+    return textField.value.match(regexMatcher) !== null;
+}
+
 function analyzeForm(textField, submitButton) {
         const textHasValue = !!textField.value;
     let buttonIsActive = !submitButton.getAttribute(DISABLED);
@@ -11,7 +15,7 @@ function analyzeForm(textField, submitButton) {
     if (textHasValue !== buttonIsActive) {
         toggleButton(submitButton, textHasValue);
     }
-    const contentIsAnUrl = textField.value.match(regexMatcher)!==null;
+    const contentIsAnUrl = textFieldContainsUrl(textField);
     if (contentIsAnUrl !== urlModeIsActive) {
         urlModeIsActive = Client.toggleUrl(contentIsAnUrl);
     }
@@ -28,4 +32,4 @@ function toggleButton(submitButton, active) {
 
 
 module.exports.analyzeForm = analyzeForm
-module.exports.urlModeIsActive = urlModeIsActive;
+module.exports.textFieldContainsUrl = textFieldContainsUrl;

@@ -1,6 +1,7 @@
 import { analyzeForm, textFieldContainsUrl} from './js/formActions'
 import { handleSubmit } from './js/formHandler'
 import { update, toggleUrl } from './js/resultUpdate'
+import { URL_REGEX, DISABLED, VISIBLE_ERROR, INVISIBLE_ERROR} from './js/constants'
 import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/footer.scss'
@@ -17,5 +18,9 @@ export {
     analyzeForm,
     handleSubmit,
     update,
-    toggleUrl
+    toggleUrl,
+    URL_REGEX,
+    DISABLED,
+    VISIBLE_ERROR,
+    INVISIBLE_ERROR
 }

@@ -1,6 +1,3 @@
-const VISIBLE_ERROR = 'display: block;';
-const INVISIBLE_ERROR = 'display: none;';
-
 function handleSubmit(event, contentIsUrl) {
     event.preventDefault()
 
@@ -26,9 +23,9 @@ function handleSubmit(event, contentIsUrl) {
 
 function toggleErrorLabel(setVisible) {
     const errorLabel = document.getElementById('connection-error');
-    const errorIsVisible = errorLabel.getAttribute('style') === VISIBLE_ERROR;
+    const errorIsVisible = errorLabel.getAttribute('style') === Client.VISIBLE_ERROR;
     if (setVisible !== errorIsVisible) {
-        errorLabel.setAttribute('style',setVisible ? VISIBLE_ERROR : INVISIBLE_ERROR);
+        errorLabel.setAttribute('style',setVisible ? Client.VISIBLE_ERROR : Client.INVISIBLE_ERROR);
     }
 }
 module.exports.handleSubmit = handleSubmit;

@@ -1,16 +1,12 @@
-const DISABLED = 'disabled';
-const urlRegEx = /^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})$/gi;
-const regexMatcher = new RegExp(urlRegEx);
 let urlModeIsActive = false;
 
-
 function textFieldContainsUrl(textField) {
-    return textField.value.match(regexMatcher) !== null;
+    return textField.value.match(new RegExp(Client.URL_REGEX)) !== null;
 }
 
 function analyzeForm(textField, submitButton) {
         const textHasValue = !!textField.value;
-    let buttonIsActive = !submitButton.getAttribute(DISABLED);
+    let buttonIsActive = !submitButton.getAttribute(Client.DISABLED);
 
     if (textHasValue !== buttonIsActive) {
         toggleButton(submitButton, textHasValue);
@@ -23,9 +19,9 @@ function analyzeForm(textField, submitButton) {
 
 function toggleButton(submitButton, active) {
     if (active) {
-        submitButton.removeAttribute(DISABLED);
+        submitButton.removeAttribute(Client.DISABLED);
     } else {
-        submitButton.setAttribute(DISABLED, DISABLED)
+        submitButton.setAttribute(Client.DISABLED, Client.DISABLED)
     }
 }
 
